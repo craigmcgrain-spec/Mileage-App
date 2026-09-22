@@ -16,6 +16,19 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            // Credentials live in ~/.gradle/gradle.properties (never committed).
+            val storeFileProp = project.findProperty("MILEAGE_STORE_FILE") as String?
+            if (storeFileProp != null && file(storeFileProp).exists()) {
+                storeFile = file(storeFileProp)
+                storePassword = project.findProperty("MILEAGE_STORE_PASSWORD") as String?
+                keyAlias = project.findProperty("MILEAGE_KEY_ALIAS") as String?
+                keyPassword = project.findProperty("MILEAGE_KEY_PASSWORD") as String?
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -23,6 +36,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Use release key when configured, otherwise AGP falls back to debug key.
+            val releaseSigning = signingConfigs.getByName("release")
+            if (releaseSigning.storeFile != null) {
+                signingConfig = releaseSigning
+            }
         }
         debug {
             applicationIdSuffix = ".debug"
