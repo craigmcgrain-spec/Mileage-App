@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mileage_background">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/mileage_spacing_md">
+
+            <!-- Header Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textAppearance="@style/MileageTitleText"
+                android:textSize="@dimen/mileage_text_size_xxl" />
+
+            <!-- Active Trip Banner (visible while tracking) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/layout_active_trip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mileage_spacing_md"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/mileage_primary"
+                app:cardCornerRadius="@dimen/mileage_radius_lg"
+                app:cardElevation="@dimen/mileage_elevation_low">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/mileage_card_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tracking_trip"
+                        android:textAppearance="@style/MileageSmallText"
+                        android:textColor="@color/mileage_button_text" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tv_active_miles"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0.00 mi"
+                            android:textColor="@color/mileage_button_text"
+                            android:textAppearance="@style/MileageAmountText"
+                            android:textSize="@dimen/mileage_text_size_xxl" />
+
+                        <TextView
+                            android:id="@+id/tv_active_elapsed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00:00:00"
+                            android:textColor="@color/mileage_button_text"
+                            android:textAppearance="@style/MileageSmallText" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Summary Cards -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mileage_spacing_md"
+                app:cardBackgroundColor="@color/mileage_surface"
+                app:cardCornerRadius="@dimen/mileage_radius_lg"
+                app:cardElevation="@dimen/mileage_elevation_low">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/mileage_card_padding">
+
+                    <!-- Total Miles -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/mileage_spacing_xl"
+                            android:layout_height="@dimen/mileage_spacing_xl"
+                            android:src="@drawable/ic_directions_car"
+                            android:contentDescription="@string/total_miles"
+                            app:tint="@color/mileage_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/mileage_spacing_md">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/total_miles"
+                                android:textAppearance="@style/MileageSmallText" />
+
+                            <TextView
+                                android:id="@+id/tv_total_miles"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.0"
+                                android:textAppearance="@style/MileageAmountText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/mileage_divider"
+                        android:layout_marginVertical="@dimen/mileage_spacing_sm" />
+
+                    <!-- Work Miles -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/mileage_spacing_xl"
+                            android:layout_height="@dimen/mileage_spacing_xl"
+                            android:src="@drawable/ic_work"
+                            android:contentDescription="@string/work_mileage"
+                            app:tint="@color/mileage_accent" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/mileage_spacing_md">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/work_mileage"
+                                android:textAppearance="@style/MileageSmallText" />
+
+                            <TextView
+                                android:id="@+id/tv_work_miles"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.0"
+                                android:textAppearance="@style/MileageAmountText"
+                                android:textColor="@color/mileage_accent" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Date Range Filter -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mileage_spacing_md"
+                app:cardBackgroundColor="@color/mileage_surface"
+                app:cardCornerRadius="@dimen/mileage_radius_lg"
+                app:cardElevation="@dimen/mileage_elevation_low">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/mileage_card_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date_range"
+                        android:textAppearance="@style/MileageTitleText" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/mileage_spacing_sm">
+
+                        <TextView
+                            android:id="@+id/tv_date_range_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/select_date_range"
+                            android:textAppearance="@style/MileageSmallText" />
+
+                        <ImageButton
+                            android:id="@+id/btn_filter_purpose"
+                            android:layout_width="@dimen/mileage_spacing_xl"
+                            android:layout_height="@dimen/mileage_spacing_xl"
+                            android:src="@drawable/ic_filter_list"
+                            android:contentDescription="@string/filter_by_purpose"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            app:tint="@color/mileage_on_surface_variant" />
+
+                        <ImageButton
+                            android:id="@+id/btn_clear_filters"
+                            android:layout_width="@dimen/mileage_spacing_xl"
+                            android:layout_height="@dimen/mileage_spacing_xl"
+                            android:src="@drawable/ic_close"
+                            android:contentDescription="@string/clear_filters"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            app:tint="@color/mileage_on_surface_variant"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/mileage_spacing_sm"
+                        android:clipToPadding="false"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_today"
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/today"
+                                android:checked="false" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_week"
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/this_week"
+                                android:checked="false"
+                                android:layout_marginStart="@dimen/mileage_spacing_sm" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_month"
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/this_month"
+                                android:checked="false"
+                                android:layout_marginStart="@dimen/mileage_spacing_sm" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chip_custom"
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/custom_range"
+                                android:checked="false"
+                                android:layout_marginStart="@dimen/mileage_spacing_sm" />
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Quick Stats -->
+            <LinearLayout
+                android:id="@+id/layout_quick_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/mileage_spacing_md">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/mileage_spacing_sm"
+                    app:cardBackgroundColor="@color/mileage_surface"
+                    app:cardCornerRadius="@dimen/mileage_radius_lg"
+                    app:cardElevation="@dimen/mileage_elevation_low">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/mileage_card_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/work_miles_total"
+                            android:textAppearance="@style/MileageSmallText" />
+
+                        <TextView
+                            android:id="@+id/tv_work_miles_detail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0"
+                            android:textColor="@color/mileage_accent"
+                            android:textAppearance="@style/MileageAmountText" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/mileage_spacing_sm"
+                    app:cardBackgroundColor="@color/mileage_surface"
+                    app:cardCornerRadius="@dimen/mileage_radius_lg"
+                    app:cardElevation="@dimen/mileage_elevation_low">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/mileage_card_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/personal_miles_total"
+                            android:textAppearance="@style/MileageSmallText" />
+
+                        <TextView
+                            android:id="@+id/tv_personal_miles_detail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0"
+                            android:textColor="@color/mileage_info"
+                            android:textAppearance="@style/MileageAmountText" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <!-- Trip Log Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/trip_log"
+                android:textAppearance="@style/MileageTitleText"
+                android:layout_marginTop="@dimen/mileage_spacing_lg" />
+
+            <!-- Trip List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_trips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mileage_spacing_sm"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/layout_empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/mileage_spacing_xl"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_directions_car"
+                    android:alpha="0.3"
+                    app:tint="@color/mileage_on_surface_variant" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_trips_yet"
+                    android:textAppearance="@style/MileageSubtitleText"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/mileage_spacing_md" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_start_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/mileage_fab_margin"
+        android:src="@drawable/ic_add"
+        android:contentDescription="@string/start_trip"
+        app:tint="@color/mileage_button_text"
+        app:backgroundTint="@color/mileage_primary"
+        app:elevation="@dimen/mileage_elevation_medium"
+        app:fabSize="normal" />
+
+    <!-- Active Trip FAB (visible when trip is ongoing) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_stop_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/mileage_fab_margin"
+        android:src="@drawable/ic_stop"
+        android:contentDescription="@string/stop_trip"
+        android:visibility="gone"
+        app:tint="@color/mileage_button_text"
+        app:backgroundTint="@color/mileage_stop_button"
+        app:elevation="@dimen/mileage_elevation_medium"
+        app:fabSize="normal" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

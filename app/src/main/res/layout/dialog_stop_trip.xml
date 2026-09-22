@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/mileage_spacing_lg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_trip"
+        android:textAppearance="@style/MileageTitleText"
+        android:textSize="@dimen/mileage_text_size_xl" />
+
+    <TextView
+        android:id="@+id/tv_stop_live_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0 miles"
+        android:textAppearance="@style/MileageAmountText"
+        android:layout_marginTop="@dimen/mileage_spacing_sm" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_trip_confirm_hint"
+        android:textAppearance="@style/MileageSmallText"
+        android:layout_marginTop="@dimen/mileage_spacing_sm" />
+
+    <!-- Purpose (editable at stop) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mileage_spacing_md"
+        android:hint="@string/enter_purpose"
+        style="@style/MileageTextInput">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_purpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Work Trip Toggle -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_work_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/work"
+        android:checked="false"
+        android:layout_marginTop="@dimen/mileage_spacing_md" />
+
+</LinearLayout>

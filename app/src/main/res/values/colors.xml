@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary brand colors -->
+    <color name="mileage_primary">#4CAF50</color>
+    <color name="mileage_primary_dark">#388E3C</color>
+    <color name="mileage_primary_light">#81C784</color>
+    <color name="mileage_accent">#FF9800</color>
+
+    <!-- Dark theme surface colors -->
+    <color name="mileage_background">#121212</color>
+    <color name="mileage_surface">#1E1E1E</color>
+    <color name="mileage_surface_variant">#2A2A2A</color>
+    <color name="mileage_surface_highlight">#333333</color>
+
+    <!-- Text colors -->
+    <color name="mileage_on_background">#FFFFFF</color>
+    <color name="mileage_on_surface">#E0E0E0</color>
+    <color name="mileage_on_surface_variant">#B0B0B0</color>
+    <color name="mileage_hint_text">#757575</color>
+
+    <!-- Status colors -->
+    <color name="mileage_success">#4CAF50</color>
+    <color name="mileage_warning">#FF9800</color>
+    <color name="mileage_error">#F44336</color>
+    <color name="mileage_info">#2196F3</color>
+
+    <!-- Trip colors -->
+    <color name="mileage_trip_active">#4CAF50</color>
+    <color name="mileage_trip_completed">#2196F3</color>
+    <color name="mileage_trip_cancelled">#F44336</color>
+
+    <!-- Utility colors -->
+    <color name="mileage_divider">#2A2A2A</color>
+    <color name="mileage_card_background">#1E1E1E</color>
+    <color name="mileage_button_background">#4CAF50</color>
+    <color name="mileage_button_text">#FFFFFF</color>
+    <color name="mileage_stop_button">#F44336</color>
+</resources>

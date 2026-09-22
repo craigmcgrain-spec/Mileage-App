@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing -->
+    <dimen name="mileage_spacing_xs">4dp</dimen>
+    <dimen name="mileage_spacing_sm">8dp</dimen>
+    <dimen name="mileage_spacing_md">16dp</dimen>
+    <dimen name="mileage_spacing_lg">24dp</dimen>
+    <dimen name="mileage_spacing_xl">32dp</dimen>
+
+    <!-- Corner radii -->
+    <dimen name="mileage_radius_sm">8dp</dimen>
+    <dimen name="mileage_radius_md">12dp</dimen>
+    <dimen name="mileage_radius_lg">16dp</dimen>
+    <dimen name="mileage_radius_xl">24dp</dimen>
+    <dimen name="mileage_radius_round">100dp</dimen>
+
+    <!-- Elevations -->
+    <dimen name="mileage_elevation_low">1dp</dimen>
+    <dimen name="mileage_elevation_medium">2dp</dimen>
+    <dimen name="mileage_elevation_high">4dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="mileage_text_size_xs">10sp</dimen>
+    <dimen name="mileage_text_size_sm">12sp</dimen>
+    <dimen name="mileage_text_size_md">14sp</dimen>
+    <dimen name="mileage_text_size_lg">16sp</dimen>
+    <dimen name="mileage_text_size_xl">20sp</dimen>
+    <dimen name="mileage_text_size_xxl">28sp</dimen>
+    <dimen name="mileage_text_size_huge">48sp</dimen>
+
+    <!-- FAB -->
+    <dimen name="mileage_fab_size">56dp</dimen>
+    <dimen name="mileage_fab_small_size">40dp</dimen>
+    <dimen name="mileage_fab_margin">16dp</dimen>
+
+    <!-- Card -->
+    <dimen name="mileage_card_padding">16dp</dimen>
+    <dimen name="mileage_item_padding">12dp</dimen>
+
+    <!-- Trip item -->
+    <dimen name="mileage_trip_item_min_height">72dp</dimen>
+</resources>

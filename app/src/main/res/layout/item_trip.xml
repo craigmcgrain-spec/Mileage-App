@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/mileage_spacing_sm"
+    app:cardBackgroundColor="@color/mileage_surface"
+    app:cardCornerRadius="@dimen/mileage_radius_lg"
+    app:cardElevation="@dimen/mileage_elevation_low">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/mileage_item_padding">
+
+        <!-- Status Indicator -->
+        <View
+            android:id="@+id/iv_status_indicator"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:background="@color/mileage_trip_completed"
+            android:layout_marginEnd="@dimen/mileage_spacing_sm" />
+
+        <!-- Trip Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Date and Time Row -->
+            <TextView
+                android:id="@+id/tv_trip_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jan 1, 2024"
+                android:textAppearance="@style/MileageTitleText"
+                android:textSize="@dimen/mileage_text_size_md" />
+
+            <TextView
+                android:id="@+id/tv_trip_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:30 AM - 11:15 AM"
+                android:textAppearance="@style/MileageSmallText" />
+
+            <!-- Purpose -->
+            <TextView
+                android:id="@+id/tv_trip_purpose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Client meeting"
+                android:textAppearance="@style/MileageSmallText"
+                android:textColor="@color/mileage_on_surface"
+                android:layout_marginTop="2dp" />
+
+            <!-- Work Badge -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_purpose"
+                style="@style/Widget.Material3.Chip.Assist.Elevated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/work"
+                android:textSize="@dimen/mileage_text_size_xs"
+                android:visibility="gone"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+        <!-- Distance -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tv_trip_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15.5"
+                android:textAppearance="@style/MileageAmountText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/miles"
+                android:textAppearance="@style/MileageSmallText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

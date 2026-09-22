@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.MileageApp" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/mileage_primary</item>
+        <item name="colorPrimaryVariant">@color/mileage_primary_dark</item>
+        <item name="colorOnPrimary">@color/mileage_on_background</item>
+        <item name="colorSecondary">@color/mileage_accent</item>
+        <item name="colorSecondaryVariant">@color/mileage_accent</item>
+        <item name="colorOnSecondary">@color/mileage_on_background</item>
+        <item name="android:colorBackground">@color/mileage_background</item>
+        <item name="colorSurface">@color/mileage_surface</item>
+        <item name="colorOnSurface">@color/mileage_on_surface</item>
+        <item name="colorSurfaceVariant">@color/mileage_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/mileage_on_surface_variant</item>
+        <item name="android:windowBackground">@color/mileage_background</item>
+        <item name="android:statusBarColor">@color/mileage_background</item>
+        <item name="android:navigationBarColor">@color/mileage_surface</item>
+        <item name="materialCardViewStyle">@style/MileageCardView</item>
+        <item name="textInputStyle">@style/MileageTextInput</item>
+        <item name="extendedFloatingActionButtonStyle">@style/MileageFAB</item>
+        <item name="floatingActionButtonStyle">@style/MileageSmallFAB</item>
+    </style>
+
+    <style name="MileageCardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="MileageTextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+
+    <style name="MileageFAB" parent="Widget.Material3.ExtendedFloatingActionButton.Primary">
+        <item name="cornerRadius">24dp</item>
+        <item name="elevation">@dimen/mileage_elevation_medium</item>
+    </style>
+
+    <style name="MileageSmallFAB" parent="Widget.Material3.FloatingActionButton.Small.Primary">
+        <item name="cornerRadius">28dp</item>
+    </style>
+
+    <style name="MileageButtonText" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MileageTitleText" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/mileage_on_surface</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MileageSubtitleText" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/mileage_on_surface_variant</item>
+    </style>
+
+    <style name="MileageAmountText" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textColor">@color/mileage_primary_light</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MileageSmallText" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/mileage_on_surface_variant</item>
+    </style>
+
+</resources>
